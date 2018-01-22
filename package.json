@@ -1,0 +1,54 @@
+{
+  "name": "mongo-fake",
+  "version": "1.0.0",
+  "description": "A mongo fake test double",
+  "main": "build/mongoFake.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src -d build",
+    "commit": "npm run lint && npm run test",
+    "docs": "npm run docs:clean && ./node_modules/.bin/jsdoc ./src --destination ./docs -c ./jsdoc.json",
+    "docs:clean": "./node_modules/.bin/rimraf docs",
+    "lint": "node ./node_modules/eslint/bin/eslint ./src/**/*.js ./test/**/*.js",
+    "release:minor": "npm run test && npm run build && npm version minor && npm publish",
+    "release:major": "npm run test && npm run build && npm version major && npm publish",
+    "test": "npm run test:unit",
+    "test:unit": "mocha --require babel-register --require babel-polyfill test/**/*.js",
+    "test:unit:watch": "mocha --watch --require babel-register --require babel-polyfill test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrobison153/mongo-fake.git"
+  },
+  "keywords": [
+    "fake",
+    "test-double",
+    "mongo"
+  ],
+  "author": "Justin J. Robison",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jrobison153/mongo-fake/issues"
+  },
+  "homepage": "https://github.com/jrobison153/mongo-fake#readme",
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jsdoc": "^3.5.5",
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.2"
+  }
+}

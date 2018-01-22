@@ -1,0 +1,8 @@
+.idea/
+test/
+*.iml
+node_modules/
+.babelrc
+.eslintrc.yml
+*.tgz
+docs/
